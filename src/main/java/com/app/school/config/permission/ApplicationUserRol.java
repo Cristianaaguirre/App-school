@@ -6,9 +6,11 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+import static com.app.school.config.permission.ApplicationUserPermission.*;
+
 public enum ApplicationUserRol {
-   USER(Sets.newHashSet(ApplicationUserPermission.SUBJECT_READ, ApplicationUserPermission.SUBJECT_WRITE)),
-   ADMIN(Sets.newHashSet(ApplicationUserPermission.SUBJECT_WRITE, ApplicationUserPermission.SUBJECT_READ, ApplicationUserPermission.SCHOOL_WRITE, ApplicationUserPermission.SCHOOL_READ));
+   USER(Sets.newHashSet(SUBJECT_READ, SUBJECT_WRITE)),
+   ADMIN(Sets.newHashSet(SUBJECT_WRITE, SUBJECT_READ, SCHOOL_WRITE, SCHOOL_READ));
 
    private final Set<ApplicationUserPermission> authorities;
 
