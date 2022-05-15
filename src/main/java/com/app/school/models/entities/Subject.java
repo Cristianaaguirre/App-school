@@ -19,5 +19,4 @@ public class Subject {
    @GeneratedValue(strategy = GenerationType.AUTO)
    private Long id;
    private String name;
-   private Set<User> userList;
 }

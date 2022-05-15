@@ -1,10 +1,7 @@
 package com.app.school.models.entities;
 
 import com.app.school.config.permission.ApplicationUserRol;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -15,6 +12,7 @@ import javax.persistence.Id;
 import java.util.Collection;
 
 @Entity
+@Builder
 @NoArgsConstructor @AllArgsConstructor
 @Getter @Setter
 public class User implements UserDetails
@@ -23,14 +21,14 @@ public class User implements UserDetails
    @Id
    @GeneratedValue(strategy = GenerationType.AUTO)
    private Long id;
-   private String name;
+   private String firstName;
    private String lastName;
    private String username;
    private String email;
    private String password;
    private ApplicationUserRol applicationUserRol;
-   private Boolean locked;
-   private Boolean enable;
+   private Boolean locked = false;
+   private Boolean enable = false;
 
    @Override
    public Collection<? extends GrantedAuthority> getAuthorities() {
@@ -54,7 +52,7 @@ public class User implements UserDetails
 
    @Override
    public boolean isAccountNonLocked() {
-      return locked;
+      return enable;
    }
 
    @Override
