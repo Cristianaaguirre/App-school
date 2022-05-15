@@ -3,7 +3,6 @@ package com.app.school.services;
 import com.app.school.models.entities.Subject;
 import com.app.school.models.repositories.SubjectRepository;
 import lombok.AllArgsConstructor;
-import org.jetbrains.annotations.NotNull;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -24,9 +23,7 @@ public class SubjectServices {
       return subjectRepository.findAll();
    }
 
-   private Subject save(Subject aux) {
-      return subjectRepository.save(aux);
-   }
+   private Subject save(Subject aux) { return subjectRepository.save(aux); }
 
    private void delete(Long id) {
       subjectRepository.deleteById(id);
